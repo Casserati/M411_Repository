@@ -20,9 +20,9 @@ struPerson* Create(int count) {
 
 	for (int i = 0; i < count; i++) {
 		struPerson *pNewPerson = (struPerson *)malloc(sizeof(struPerson));
-		*pNewPerson->Vorname = 'c';
-		*pNewPerson->Nachname = 'c';
-		pNewPerson->Jahrgang = 1000;
+		*pNewPerson->Vorname = getRandomChar();
+		*pNewPerson->Nachname = getRandomChar();
+		pNewPerson->Jahrgang = getRandomInt();;
 
 		pNewPerson->pNext = NULL;
 		pNewPerson->pPrev = pLast;

@@ -3,6 +3,7 @@
 #include "string.h" 
 #include "time.h"
 
+//	Gerry Sroy
 typedef struct Person {
 	char Vorname[40];
 	char Nachname[40];
@@ -11,38 +12,38 @@ typedef struct Person {
 	struct Person *pPrev;
 }struPerson;
 
-
-
+//	Gerry Sroy
 char getRandomChar() {
 	// Zufallzeichen generieren und zurück geben
 		char randomChar = 'A' + (rand() % 26);
 		return randomChar;
 }
 
+//	Gerry Sroy
 int getRandomInt() {
 	// Zufallzahl generieren und zurück geben
 	int randomInt = 1900 + (rand() % 119);
 	return randomInt;
 }
 //Bubblesort
-struPerson* SortList(struPerson *pStart){
-	struPerson* ipStart = NULL, *jpStart = NULL, *pSortedList = NULL;
-	int temp;
-
-	for (ipStart = pStart; ipStart->pNext != NULL; ipStart = ipStart->pNext)
-	{
-		for (jpStart = ipStart->pNext; jpStart != NULL; ipStart = ipStart->pNext) {
-			if (ipStart->Nachname[0] > jpStart->Nachname[0]) {
-				temp = ipStart->Nachname[0];
-				ipStart->Nachname[0] = jpStart->Nachname[0];
-				jpStart->Nachname[0] = temp;
-			}
-		}
-	}
-
-	printf("Liste wurde mit BubbleSort sortiert.\n");
-	return pSortedList = pStart;
-}
+//struPerson* SortList(struPerson *pStart){
+//	struPerson* ipStart = NULL, *jpStart = NULL, *pSortedList = NULL;
+//	int temp;
+//
+//	for (ipStart = pStart; ipStart->pNext != NULL; ipStart = ipStart->pNext)
+//	{
+//		for (jpStart = ipStart->pNext; jpStart != NULL; ipStart = ipStart->pNext) {
+//			if (ipStart->Nachname[0] > jpStart->Nachname[0]) {
+//				temp = ipStart->Nachname[0];
+//				ipStart->Nachname[0] = jpStart->Nachname[0];
+//				jpStart->Nachname[0] = temp;
+//			}
+//		}
+//	}
+//
+//	printf("Liste wurde mit BubbleSort sortiert.\n");
+//	return pSortedList = pStart;
+//}
 
 
 void Output(struPerson* pListStart, int amountOfElements) {
@@ -75,6 +76,7 @@ void Output(struPerson* pListStart, int amountOfElements) {
 	}
 }
 
+//	Gerry Sroy
 struPerson* deleteList(struPerson* pListStart) {
 	if (pListStart != NULL) {
 		struPerson* pFirst = pListStart;
@@ -91,15 +93,32 @@ struPerson* deleteList(struPerson* pListStart) {
 	
 
 struPerson* deleteElement(struPerson* pListStart, char firstname[], char nachname[]) {
+	struPerson* pList = pListStart;
 	struPerson* pCurrent = pListStart;
 	while (pCurrent != NULL) {
 		struPerson* pDel = pCurrent;
 		if (pDel->Vorname[0] == firstname[0] && pDel->Nachname[0] == nachname[0]) {
-			pCurrent->pPrev = pDel;
-			free(pDel);
+			if (pDel->pNext != NULL && pDel->pPrev != NULL) {
+				pDel->pPrev->pNext = pDel->pNext;
+				pDel->pNext->pPrev = pDel->pPrev;
+				pCurrent = pCurrent->pNext;
+				free(pDel);
+			}
+			else if (pDel->pNext == NULL) {
+				pDel->pPrev->pNext = NULL;
+				free(pDel);
+			}
+			else
+			{
+				pDel->pNext->pPrev = NULL;
+				pList = pDel->pNext;
+				pCurrent = pCurrent->pNext;
+				free(pDel);
+			}
 		}
+		pCurrent = pCurrent->pNext;
 	}
-	return pCurrent;
+	return pList;
 }
 
 struPerson* Create(int count) {
@@ -128,14 +147,13 @@ struPerson* Create(int count) {
 	}
 	return pStart;
 }
-
 void main() {
 	srand((unsigned)time(NULL));
 	struPerson* pStart = Create(10);
-	Output(pStart, 2);
-	SortList(pStart);
 	Output(pStart, 0);
-	pStart = deleteList(pStart);
-	Output(pStart, 2);
+	char test[1] = { 'A' };
+	char tes1[2] = { 'B' };
+	pStart = deleteElement(pStart, test, tes1);
+	Output(pStart, 0);
 	system("pause");
 }

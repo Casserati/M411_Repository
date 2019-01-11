@@ -55,7 +55,6 @@ struPerson* bubbleSort(struPerson* pListStart) {
 			else if (tempStart1->Vorname[0] == tempStart2->Vorname[0]) {
 				if (tempStart1->Nachname[0] > tempStart2->Nachname[0]) {
 					swapContent(tempStart1, tempStart2);
-
 				}
 				else if (tempStart1->Nachname[0] == tempStart2->Nachname[0]) {
 					if (tempStart1->Jahrgang > tempStart2->Jahrgang) {
@@ -66,7 +65,7 @@ struPerson* bubbleSort(struPerson* pListStart) {
 		}
 	}
 	stop = clock();
-	printf("Ben\224tigte Zeit zum Sortieren: %i", stop - start);
+	printf("Ben\224tigte Zeit zum Sortieren in Milisekunden: %i\n", stop - start);
 	printf("\t LIST SORTED!\n");
 	return pListStart;
 }
@@ -157,7 +156,7 @@ int countElements(struPerson* pListStart) {
 	return amount;
 }
 
-
+//	Gerry Sroy
 struPerson* Create(int count) {
 	struPerson *pStart = NULL;
 	struPerson *pLast = NULL;
@@ -181,24 +180,30 @@ struPerson* Create(int count) {
 	return pStart;
 }
 
+//	Gerry Sroy
+int userMenu() {
+	int temp = 0;
+	printf("Was m%cchten Sie tun?\n", 148);
+	printf("Dr%ccken Sie [1] um eine Liste zu erstellen\n", 129);
+	printf("Dr%ccken Sie [2] um die Liste zu l%cschen\n", 129, 148);
+	printf("Dr%ccken Sie [3] um ein Element(e) in der Liste zu l%cschen\n", 129, 148);
+	printf("Dr%ccken Sie [4] um die Liste zu sortieren\n", 129);
+	printf("Dr%ccken Sie [5] um die Liste auszugeben\n", 129);
+	printf("Dr%ccken Sie [6] um das Programm zu beenden\n", 129);
+	scanf("%d", &temp);
+	return temp;
+}
 
 void main() {
 	srand((unsigned)time(NULL));
-	char userInput = NULL;
+	int userInput = NULL;
 	int elementCount = 0;
 	struPerson* pStart = NULL;
 	printf("THIS PROGRAM WAS CREATED BY GERRY SROY AND FRANCESCO CASAMASSA\n");
 	while (true)
 	{
+		userInput = userMenu();
 		fseek(stdin, 0, SEEK_END);
-		printf("Was m%cchten Sie tun?\n", 148);
-		printf("Dr%ccken Sie [1] um eine Liste zu erstellen\n", 129);
-		printf("Dr%ccken Sie [2] um die Liste zu l%cschen\n", 129, 148);
-		printf("Dr%ccken Sie [3] um ein Element(e) in der Liste zu l%cschen\n", 129, 148);
-		printf("Dr%ccken Sie [4] um die Liste zu sortieren\n", 129);
-		printf("Dr%ccken Sie [5] um die Liste auszugeben\n", 129);
-		printf("Dr%ccken Sie [6] um das Programm zu beenden\n", 129);
-		scanf("%d", &userInput);
 		switch (userInput) {
 		case 1:
 			printf("Geben Sie die Anzahl Elemente an die erstellt werden sollen: \n");
@@ -218,9 +223,9 @@ void main() {
 				char firstname[1];
 				char lastname[1];
 				printf("Geben Sie den Vornamen der Person ein die gel%cscht werden soll: ", 148);
-				scanf("%c", &firstname);
+				scanf("%s", &firstname);
 				printf("\nGeben Sie den Nachnamen der Person ein die gel%cscht werden soll: ", 148);
-				scanf("%c", &lastname);
+				scanf("%s", &lastname);
 				pStart = deleteElement(pStart, firstname, lastname);
 			}
 			else {
@@ -241,7 +246,7 @@ void main() {
 				scanf("%d", &userInput);
 				elementCount = countElements(pStart);
 				if (userInput != 0) {
-					while (elementCount > userInput)
+					while (elementCount < userInput)
 					{
 						printf("Ihre Zahl ist gr%csser als die Anzahl Elemente der Liste!\n", 148);
 						printf("Versuchen Sie es erneut: ");

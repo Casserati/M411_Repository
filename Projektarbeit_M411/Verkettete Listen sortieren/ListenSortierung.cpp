@@ -27,6 +27,8 @@ int getRandomInt() {
 	int randomInt = 1900 + (rand() % 119);
 	return randomInt;
 }
+
+//	Francesco Casamassa
 void swapContent(struPerson* elementOne, struPerson* elementTwo) {
 	char tempLastname[1] = { *elementOne->Nachname };
 	char tempFirstname[1] = { *elementOne->Vorname };
@@ -41,6 +43,8 @@ void swapContent(struPerson* elementOne, struPerson* elementTwo) {
 	elementTwo->Jahrgang = tempYear;
 	elementTwo->Nummer = tempNumberOfElement;
 }
+
+//	Francesco Casamassa & Gerry Sroy
 struPerson* bubbleSort(struPerson* pListStart) {
 	struPerson* tempStart1 = NULL;
 	struPerson* tempStart2 = NULL;
@@ -69,6 +73,8 @@ struPerson* bubbleSort(struPerson* pListStart) {
 	printf("\t LIST SORTED!\n");
 	return pListStart;
 }
+
+//	Francesco Casamassa
 void Output(struPerson* pListStart, int amountOfElements) {
 	if (pListStart != NULL) {
 		int i = 1;
@@ -115,6 +121,8 @@ struPerson* deleteList(struPerson* pListStart) {
 	printf("Keine Liste vorhanden!\n");
 	return NULL;
 }
+
+//	Francesco Casamassa
 struPerson* deleteElement(struPerson* pListStart, char firstname[], char nachname[]) {
 	struPerson* pList = pListStart;
 	struPerson* pCurrent = pListStart;
@@ -193,7 +201,7 @@ int userMenu() {
 	scanf("%d", &temp);
 	return temp;
 }
-
+//	Francesco Casamassa & Gerry Sroy
 void main() {
 	srand((unsigned)time(NULL));
 	int userInput = NULL;

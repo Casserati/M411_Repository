@@ -1,2 +1,12 @@
 ﻿  ListenSortierung.cpp
+c:\users\vmadmin\desktop\m411\m411_repository\projektarbeit_m411\verkettete listen sortieren\listensortierung.cpp(47): warning C4101: "start": Unreferenzierte lokale Variable
+c:\users\vmadmin\desktop\m411\m411_repository\projektarbeit_m411\verkettete listen sortieren\listensortierung.cpp(47): warning C4101: "stop": Unreferenzierte lokale Variable
+c:\users\vmadmin\desktop\m411\m411_repository\projektarbeit_m411\verkettete listen sortieren\listensortierung.cpp(201): warning C4477: "scanf": Die Formatzeichenfolge "%d" erfordert ein Argument vom Typ "int *", das variadic-Argument "1" weist aber den Typ "char *" auf.
+  c:\users\vmadmin\desktop\m411\m411_repository\projektarbeit_m411\verkettete listen sortieren\listensortierung.cpp(201): note: Verwenden Sie ggf. "%hhd" in der Formatzeichenfolge.
+c:\users\vmadmin\desktop\m411\m411_repository\projektarbeit_m411\verkettete listen sortieren\listensortierung.cpp(205): warning C4477: "scanf": Die Formatzeichenfolge "%d" erfordert ein Argument vom Typ "int *", das variadic-Argument "1" weist aber den Typ "char *" auf.
+  c:\users\vmadmin\desktop\m411\m411_repository\projektarbeit_m411\verkettete listen sortieren\listensortierung.cpp(205): note: Verwenden Sie ggf. "%hhd" in der Formatzeichenfolge.
+c:\users\vmadmin\desktop\m411\m411_repository\projektarbeit_m411\verkettete listen sortieren\listensortierung.cpp(241): warning C4477: "scanf": Die Formatzeichenfolge "%d" erfordert ein Argument vom Typ "int *", das variadic-Argument "1" weist aber den Typ "char *" auf.
+  c:\users\vmadmin\desktop\m411\m411_repository\projektarbeit_m411\verkettete listen sortieren\listensortierung.cpp(241): note: Verwenden Sie ggf. "%hhd" in der Formatzeichenfolge.
+c:\users\vmadmin\desktop\m411\m411_repository\projektarbeit_m411\verkettete listen sortieren\listensortierung.cpp(248): warning C4477: "scanf": Die Formatzeichenfolge "%d" erfordert ein Argument vom Typ "int *", das variadic-Argument "1" weist aber den Typ "char *" auf.
+  c:\users\vmadmin\desktop\m411\m411_repository\projektarbeit_m411\verkettete listen sortieren\listensortierung.cpp(248): note: Verwenden Sie ggf. "%hhd" in der Formatzeichenfolge.
   Verkettete Listen sortieren.vcxproj -> C:\Users\vmadmin\Desktop\M411\M411_Repository\Projektarbeit_M411\x64\Debug\Verkettete Listen sortieren.exe
